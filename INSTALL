@@ -1,0 +1,19 @@
+To install the precompiled Linux binary, type "make install" and it will 
+install to /usr/local/bin/dyn.  Then add a line similar to this to your 
+/etc/ppp/ip-up script:
+
+(sleep 5 ; /usr/local/bin/dyn MID SEC1 SEC2 SEC3 $4 MACHINE) &
+
+THe sleep 5 is to give pppd a chance to setup the network routes and 
+stuff correctly, which is neccessary for me at least, because I have an 
+utterly slow computer.  MID is your monolith id, sec1-3 are the 3 numbers 
+in your security code, $4 is filled in by the script with your new IP 
+address, and MACHINE is your machine, something.dyn.ml.org.
+
+Unfortunatly, as I only have access to a Linux machine, I don't know if 
+the pppd's on other OSes have /etc/ppp/ip-up's or not.  If not, there may 
+be a similar file, you'll have to do some looking around :)
+
+Have Fun!
+								Jon
+								May 21, '97
